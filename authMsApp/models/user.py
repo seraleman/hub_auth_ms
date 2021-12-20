@@ -27,10 +27,14 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser, PermissionsMixin):
     id = models.BigAutoField(primary_key=True)
-    username = models.CharField("Username", max_length=15, unique=True)
+    # username = models.CharField("Username", max_length=15, unique=True)
+    email = models.EmailField("Email", max_length=100, unique=True)
     password = models.CharField("Password", max_length=256)
     full_name = models.CharField("FullName", max_length=100)
+    document = models.CharField("Document", max_length=50)
+    date_of_birth = models.DateField("Date_Of_Birth")
     enabled = models.BooleanField("Enabled", default=True)
+
     role = models.ForeignKey(Role, related_name="role", on_delete=models.DO_NOTHING)
 
     def save(self, **kwargs):
@@ -39,4 +43,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         super().save(**kwargs)
 
     objects = UserManager()
-    USERNAME_FIELD = "username"
+    USERNAME_FIELD = "email"
