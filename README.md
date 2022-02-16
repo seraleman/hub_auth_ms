@@ -24,7 +24,7 @@ El objetivo de este microservicio es la administración de los usuarios. Al ser 
 
 Para su uso se debe implementar un archivo que contenga la clave secreta y la conexión a la base de datos. (En el presente proyecto se usó Postgres SQL)
 
-- Crear archivo **sensible.py** en _authMsProject/_ e incluir el siguiente código:
+- Crear archivo **sensitive.py** en _authMsProject/_ e incluir el siguiente código:
 
 (Implementar una llave secreta propia)
 
